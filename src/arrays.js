@@ -88,3 +88,17 @@ const existeAlgumAlunoDeBackend = alunos2.some(function(item) {
 })
 
 console.log(existeAlgumAlunoDeBackend);
+
+divisoria("Filtrando Somente Alunos de Backend")
+// Método Para Filtrar Arrays
+// const alunosDeBackend = alunos2.filter(function(item) {
+//     return item.curso === 'Backend';
+// })
+// Ao Invés de usar o código acima, podemos também fazer da seguinte maneira:
+function filtroAlunosBackend(aluno) {
+    return aluno.curso === 'Backend';
+}
+
+const alunosDeBackend = alunos2.filter(filtroAlunosBackend);
+
+console.log(alunosDeBackend);
