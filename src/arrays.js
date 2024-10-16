@@ -1,3 +1,9 @@
+function divisoria(texto) {
+    console.log("---------------------------------------------------------");
+    console.log(texto);
+    console.log("---------------------------------------------------------");
+}
+
 const redesSociais = ['Facebook', 'Instagram', 'Twitter'];
 
 // Chamando Array de maneira normal
@@ -5,16 +11,22 @@ const redesSociais = ['Facebook', 'Instagram', 'Twitter'];
 //     console.log(`Eu tenho perfil na rede social: ${redesSociais[i]}`)
 // }
 
-// Chamando Array utilizando o ES6+
+divisoria("Chamando Array Utilizando o ES6+");
 redesSociais.forEach(function(nomeDaRedeSocial, indice) {
     console.log(`#${indice} Eu tenho perfil na rede social: ${nomeDaRedeSocial}`)
 })
 
+divisoria("Array de Alunos");
 // Método "map"
 // Podemos iterar um Array e criar um novo array
 // Exemplo 1:
 const alunos = ['Gustavo', 'Julia', 'Eduardo', 'Wagner'];
 
+alunos.forEach(function(nomeDoAluno) {
+    console.log(`Olá! Meu nome é: ${nomeDoAluno}`)
+})
+
+divisoria("Criando Novo Array - Método Map");
 const alunos2 = alunos.map(function(itemAtual) {
     // Objeto
     return {
@@ -27,12 +39,52 @@ const alunos2 = alunos.map(function(itemAtual) {
 
 console.log(alunos2);
 
-// Exemplo 2:
-const numeros = [1, 2, 3, 4, 5];
-const dobroDosNumeros = numeros.map(function(numeroAtual) {
-    // numeroAtual = numeroAtual * 2;
-    // Podemos fazer direto no "return";
-    return numeroAtual * 2;
+divisoria("Buscando o Aluno no Array");
+// Método para busca de item no Array
+// Utiliza .find()
+// Caso não encontre o retorno será "undefined"
+const eduardo = alunos2.find(function(item) {
+    return item.nome == 'Eduardo' // true or false
 })
 
-console.log(dobroDosNumeros);
+console.log(eduardo);
+
+divisoria("Encontra o Indice do Nome no Array");
+// Encontra o Indice do item no Array
+// Utiliza .findIndex()
+// Caso não encontre o retorno será "-1"
+const indiceDoEduardo = alunos2.findIndex(function(item) {
+    return item.nome == 'Eduardo' // true or false
+})
+
+console.log(indiceDoEduardo);
+
+divisoria("Verificando se Todos os Alunos são do Mesmo Curso");
+// Método para verificar os valores dentro de um Array
+// Verificando se todos os alunos são do curso de Frontend
+// Retorna true or false
+// .every
+// Adicionando um aluno de Backend para retornar false
+alunos2.push({
+    nome: 'Jonas',
+    curso: 'Backend'
+})
+
+const todosAlunosSaoDeFrontend = alunos2.every(function(item) {
+    return item.curso === 'Frontend'
+})
+
+console.log(todosAlunosSaoDeFrontend);
+
+divisoria("Verificando se Pelo Menos um Aluno é de Backend");
+// Verificando se pelo menos um dos items do Array contém o que pesquisamos
+// .some
+// Retorna true or false
+const existeAlgumAlunoDeBackend = alunos2.some(function(item) {
+    // Verifica se pelo menos um aluno é Backend e Frontend
+    // Retorna false, pois nenhum aluno tem ambos os cursos
+    // return item.curso === 'Backend' && item.curso === 'Frontend'
+    return item.curso === 'Backend'
+})
+
+console.log(existeAlgumAlunoDeBackend);
