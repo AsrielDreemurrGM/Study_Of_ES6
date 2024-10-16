@@ -89,7 +89,7 @@ const existeAlgumAlunoDeBackend = alunos2.some(function(item) {
 
 console.log(existeAlgumAlunoDeBackend);
 
-divisoria("Filtrando Somente Alunos de Backend")
+divisoria("Filtrando Somente Alunos de Backend");
 // Método Para Filtrar Arrays
 // const alunosDeBackend = alunos2.filter(function(item) {
 //     return item.curso === 'Backend';
@@ -102,3 +102,33 @@ function filtroAlunosBackend(aluno) {
 const alunosDeBackend = alunos2.filter(filtroAlunosBackend);
 
 console.log(alunosDeBackend);
+
+divisoria("Juntando Itens de um Array em um Único Item - Números");
+// Método para juntar todos os itens de um Array em um só
+// reduce
+const nums = [10, 20, 30, 10];
+
+const soma = nums.reduce(function(acumulador, itemAtual) {
+    acumulador += itemAtual;
+    return acumulador;
+}, 0)
+
+console.log(soma);
+
+divisoria('Juntando Itens de um Array em um Único Item Com o "for"')
+// É possível fazer com o "for", porém da mais trabalho
+let somaComFor = 0;
+
+for (let i = 0; i < nums.length; i++) {
+    somaComFor += nums[i];
+}
+console.log(somaComFor);
+
+divisoria("Juntando Itens de um Array em um Único Item - Strings");
+const nomesDosAlunos = alunos2.reduce(function(acumulador, itemAtual) {
+    // Utilizado as Aspas "``" para poder adicionar o Espaço " "
+    acumulador += `${itemAtual.nome} `
+    return acumulador;
+}, '')
+
+console.log(nomesDosAlunos);
