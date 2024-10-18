@@ -4,6 +4,7 @@ function divisoria(texto) {
     console.log("---------------------------------------------------------");
 }
 
+// Rest
 divisoria("Retornando Todos os Argumentos Fornecidos");
 function somaExemplo() {
     // Se precisassemos fazer a soma de vários numeros, iriamos ter que criar um
@@ -53,3 +54,47 @@ function somarComRest(...numeros) {
 }
 
 console.log(somarComRest(10, 20, 30));
+
+// Spread
+// Com o Spread conseguimos "espalha" os itens de um Array;
+// Para utilizar o Spread usamos os "..." da mesma maneira que no Rest;
+// O que diferencia o Spread do Rest é o seu caso de uso, o Rest é utilizado como
+// argumento de função, e o Spread podemos utilizar para fazer concatenações, console.log 
+// e preeenchimento de objetos;
+divisoria('Mostrando os Valores de um Array com o Spread');
+const numeros = [1, 2, 3, 4]
+console.log(...numeros);
+
+divisoria("Unindo Arrays com o Concat")
+const cidadesDeSantaCatarina = ['Chapecó', 'Pinhalzinho','Cunha Porã', 'Maravilha'];
+const cidadesDoRioGrandeDoSul = ['Rio Grande', 'Pelotas', 'Passo Fundo', 'Alvorada'];
+
+// Podemos uni-los utilizando a função ".concat()";
+const cidadesConcat = [cidadesDeSantaCatarina.concat(cidadesDoRioGrandeDoSul)];
+console.log(cidadesConcat)
+// Outra maneira é através do Spread
+divisoria("Unindo Arrays com o Spread")
+// Criamos um novo Array (cidadesSpread) e "espalhamos" o conteúdo dos outros arrays nele;
+const cidadesSpread = [...cidadesDeSantaCatarina, ...cidadesDoRioGrandeDoSul];
+console.log(cidadesSpread)
+
+divisoria("Utilizando o Spread em Objetos - Carro da Julia");
+// Podemos também utilizar o Spread em Objetos, espalhando assim suas propriedades;
+const carroDaJulia = {
+    modelo: 'gol',
+    marca: 'vw',
+    motor: 1.6
+}
+console.log(carroDaJulia);
+
+const carroDaAna = {
+    // Para não repetir o código podemos utilizar o Spread
+    // Pegamos as informações do Objeto chamando-o com os "...";
+    // Neste exemplo a única diferença é que o carro da Ana tem um motor 1.8,
+    // então só passamos o valor alterado;
+    // Se os carros fossem identicos, poderiamos simplesmente não fornecer nenhum valor;
+    ...carroDaJulia,
+    motor: 1.8
+}
+divisoria("Utilizando o Spread em Objetos - Carro da Ana");
+console.log(carroDaAna);
