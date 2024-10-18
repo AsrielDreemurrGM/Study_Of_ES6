@@ -98,3 +98,32 @@ const carroDaAna = {
 }
 divisoria("Utilizando o Spread em Objetos - Carro da Ana");
 console.log(carroDaAna);
+
+divisoria("Recurso do ES6+ - Desestruturação - Motores dos Carros");
+// Se quiséssemos acessar somente a propriedade motor do carro da Ana,
+// poderiamos fazer da seguinte maneira: const motorDoCarroDaAna = carroDaAna.motor;
+// Com a Desestruturação de Objetos podemos fazer isto diretamente na 
+// atribuição de uma variável, da seguinte maneira:
+// const { propriedadeDesejada } = ObjetoQueContemAPropriedade;
+// Com a Desetruturação podemos aplicar o "Alias", ou apelido, as variáveis,
+// isto é útil pois não podemos ter várias variáveis com o mesmo nome;
+// Fazemos isto com os dois pontos ":" após a propriedade;
+const { motor: motorCarroAna } = carroDaAna;
+const { motor: motorCarroJulia } = carroDaJulia;
+
+console.log(motorCarroJulia);
+console.log(motorCarroAna);
+
+divisoria("Desestruturação de Arrays - Primeiras Cidades do Array");
+// Reaproveitado os Arrays de cidades;
+// Para fazer a Desestruturação de Arrays também criamos uma constante,
+// porém passamos Colchetes "[]" ao invés de Chaves "{}";
+const [item1, item2, item3, ...outrasCidades] = cidadesSpread;
+
+// Chamamos os três primeiros items - Retorno: string;
+console.log(item1);
+console.log(item2);
+console.log(item3);
+divisoria("Desestruturação de Arrays - Todas as Outras Cidades");
+// Chamamos todos os items que sobraram com o Rest - Retorno: Array de Strings;
+console.log(outrasCidades);
