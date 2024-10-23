@@ -70,3 +70,46 @@ divisoria("Removendo Item do Map");
 meuMap.delete("stack");
 
 console.log(meuMap);
+
+divisoria("Criando um Set");
+// Set
+// O Set é uma estrutura mais rígida, não temos o conjunto de Chave e Valor;
+// Além disso, valores não podem se repetir dentro de um Set;
+// Vamos fazer uma lista de CPFs;
+const cpfs = new Set();
+
+// Adicionando item ao Set;
+cpfs.add('42960293045');
+cpfs.add('49861664092');
+cpfs.add('66906050001');
+
+// Recebemos todos os valores, sem separação;
+console.log(cpfs);
+
+divisoria('Listando o Set com ".keys"');
+// Utilizando ".keys" e ".values" obtemos exatamente o mesmo retorno;
+console.log(cpfs.keys());
+divisoria('Listando o Set com ".values"');
+console.log(cpfs.values());
+
+divisoria('Listando o Set com ".forEach"');
+// ForEach - Pode ser usado tanto com Sets quanto com Maps
+cpfs.forEach((valor) => {
+    console.log(valor);
+})
+
+divisoria('Listando Array com Valores Repetidos');
+const array = ['Eduardo Augusto', 'José Paulo', 'Maria Isabel', 'Robson', 'Joana', 'Joana', 'Robson'];
+
+console.log(array);
+
+divisoria('Transformando o Array em Set - Remove Valores Repetidos');
+// Fazemos isso transformando o Array em um Set, já que o Set não permite valores repetidos;
+const arrayComoSet = new Set([...array]);
+
+console.log(arrayComoSet);
+
+divisoria('Transformando o Set em Array');
+const arraySemItensDuplicados = [...arrayComoSet];
+
+console.log(arraySemItensDuplicados);
